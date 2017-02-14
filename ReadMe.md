@@ -1,5 +1,5 @@
 ######Updated:  30 Sep 2015
-######POC:  Jesse "RBOT" Davis, jesse.davis.5@us.af.mil
+######POC:  Jason "Dread Pirate" Roberts, jason.roberts.14@us.af.mil
 <hr>
 The current iteration of BlueLight is a major re-write aimed at eliminating its original hard-coded deficiencies and lack of error checking/handling. BlueLigHT is a collection of Powershell scripts that can be used to gather host information. Previous 
 users of Bluelight will notice that the file structure has been changed significantly, this has been done for organizational purposes. The use and functionality of BlueLight Torch has been preserved, expanded, and streamlined. One noticeable difference is that Torch and Laser are now properly treated as distinct modules, imported at runtime by the Start-BlueLigHT routine.
