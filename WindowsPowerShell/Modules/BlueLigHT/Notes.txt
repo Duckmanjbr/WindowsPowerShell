@@ -1,0 +1,140 @@
+General/design problems to solve
+	- too many files
+	- too many hard-coded variables
+	- no easy button
+		- menu driven use (for 852)
+	- general buginess
+	- lack of full functionality in Laser
+	- Lack of compatibility between Laser and Torch
+	- Lack of multiple output options
+	- Lack of documentation and training
+	- Lack of version control
+	- over use of global variables
+	- the junction, is it necessary?
+	- way too much setup in profile.ps1
+	- hostsop, or something like it, needs to be a function
+	- it doesn't work on linux
+	- compatibility issues with powershell 4.0
+	- memory leaks
+	- speed issues
+		- P_solution: add true multithreading
+	- external calls in host-sop to enable winrm
+	- more object orientedness
+	- lack of accurate help
+		- can I get someone else to do this?
+	- lack of comments
+		- fml
+	- error handling
+		
+	
+Specific Problems to solve
+
+	- forced name resolution?
+		- is there a way to manually set the server to the DCIP for resolution? Probably
+	- forced credential verification
+	- Flexible IOC search capability
+	- Multi-threading capability
+	- make a hostsop function
+	- weird double transcript bug (powershell 5 unique?)
+		fixed
+	- when a host is no longer resolvable, scripts fail, but don't tell you why
+	
+IRAT
+1. Identify Rogue Processes 
+	- Data Collection
+		- enum-processes (executable name, parent process, path, cmdline, starttime, priority, user, hash?)
+	- Analysis
+		- LFO (manual/pivot tables)
+		- LFO (automatic/Splunk)
+		- DFIR Poster(Splunk)
+			- Valid path
+			- Valid parent
+			- Valid cmdline options
+			- Valid starttime
+			- Valid user
+	
+2. Analyze Process DLLs and handles
+	- Data Collection
+		-
+	- Analysis
+		-
+		
+3. Review Network Artefacts
+	- Data Collection
+		- enum-netstat
+	- Analysis
+		- LFO (manual)
+		- LFO (Splunk)
+		
+4. Look for evidence of code injection
+	- Data Collection
+		- Armament (?)
+		- memory scrape
+		- memgrep
+		- antibody
+	- Analysis
+		- Volatility
+5. Check for signs of a rootkit
+	- Data Collection
+		-
+	- Analysis
+		-
+6. Dump suspicious processes and Drivers
+	- Data Collection
+		- copy \\$computer\C$\path_to_proc .
+		- enum-driver
+	- Analysis
+		- Strings
+		- Bonepicker
+		- IDA
+		- Ollydbg
+		
+**7. Look for evidence of lateral movement
+	- Data Collection
+		- Network logons from other hosts on the network
+		- pass the hash detection
+		
+	- Analysis
+		- manual/splunk
+		
+**8. Look for evidence of persistence
+	- Data Collection
+		- Registry
+		- enum-autorun
+	- Analysis
+		- LFO
+		
+Windows box survey
+	Win kernel version
+	Architecture 
+	Running ps
+	Loaded drivers
+	Auditing status
+	Locale lang
+	Drives/Disk usage
+	Memory status 
+	Active users/credentials 
+	Last login event
+	Net connections
+	Dirwalk 1hr mod history
+	Av running version engine and sigs
+	Cloud?
+	Pswddump
+	Persistence pts..reg keys start run.
+	at jobs
+	Installed sw
+	Keyboard mouse activity
+	Screenshot
+	Winlogin, shell
+	Last reboot eg 6008
+	Fw configuration 
+	Netbios name
+	Offered shares
+	Mapped shares
+	Arp cache
+	Network configuration
+	Ip,dns,dgw,route table,dhcp
+	Network interfaces
+	Last os patch
+
+	

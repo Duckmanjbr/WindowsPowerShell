@@ -1,0 +1,49 @@
+20150804 - Rickert
+	- updated enum-autorun
+		added description of locations checked
+	- updated enum-driver
+		also added config line for driver whitelist
+	- updated enum-netstat
+	- updated enum-logon'
+		added field for authentication package
+	- updated enum-pipe
+	- fixed bug where substrings of local addrs were interpretted as localhost
+	- updated enum-winevents, but unable to test
+	- renamed skull-connect to .psm1
+	- renamed download-file to .psm1
+	- updated enum-adapter
+		
+20150803 - Rickert
+	- Removing 'config file' option for modules that don't need it;
+		most begin blocks for new modules should look like this:
+		$scripttime = [Diagnostics.Stopwatch]::StartNew()
+        $outputFileName="Enum-Process"
+        $ErrorFileNameH,$ErrorFileNameV,$outputFileName = Set-OutandErrorFiles -outputFileName $outputFileName -CSV $CSV -TXT $TXT
+	- repaired MD5 Hashing functionality of enum-service and enum-process
+	- most common commands are actually object-oriented function calls now
+		$obj = $scriptblock | Invoke-RemoteCommand -ComputerArray $ComputerArray
+		
+		if($obj){
+            Out-Custom -object $obj -CSV $CSV -TXT $TXT -outputFileName $outputFileName
+        }
+		
+		Get-ErrorHost -ErrorFileNameV $ErrorFileNameV -ErrorFileNameH $ErrorFileNameH
+		
+	- enum-service updated
+	- adding key modules to list for updating
+
+20150801 - Rickert
+	- Starting from scratch with BL build taken from PBIII on 4 Jun 15
+	- Creating new manifest for Torch
+		torch.psd1
+		root module: torch.psm1
+	- Creatin Bluelight manifest for Bluelight
+		- Torch/Laser are now nested modules in BlueLight
+	- moved banner function to get-banner, renamed vars
+	- started README file...that's a project
+	- moved common functions to bluelight root module
+	- made common functions exportable
+	- moved whitelist from stand-alone script to function
+	- made out-custom object oriented, fixed weird scope problem
+	- oh god it's after midnight and I've only fixed one script
+	- added script time diagnostics to enum-process
